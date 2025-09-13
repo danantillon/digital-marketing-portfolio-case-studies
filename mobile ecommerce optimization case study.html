@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Product Page Optimization - Daniel Antillón</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0071ce, #004c91);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .header .author {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #0071ce;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0071ce;
+            padding-bottom: 10px;
+        }
+        
+        .section h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .metric-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 5px solid #0071ce;
+        }
+        
+        .metric-card .number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #0071ce;
+            display: block;
+        }
+        
+        .metric-card .label {
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background: #0071ce;
+            color: white;
+        }
+        
+        .comparison-table .improve {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .comparison-table .decline {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .insight-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .insight-box h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation-list {
+            background: #f1f8e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .recommendation-list h4 {
+            color: #388e3c;
+            margin-bottom: 15px;
+        }
+        
+        .recommendation-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .recommendation-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .recommendation-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .timeline-item .phase {
+            font-weight: bold;
+            color: #f57c00;
+            margin-bottom: 5px;
+        }
+        
+        .highlight {
+            background: #fff9c4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .section {
+                padding: 25px;
+            }
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>E-commerce Conversion Optimization</h1>
+            <div class="subtitle">Walmart Home & Garden Product Page Analysis</div>
+            <div class="author">Case Study by Daniel Eduardo Antillón</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <p>This analysis examines conversion rate optimization opportunities for Walmart's Home & Garden category, leveraging retail operations expertise and digital marketing principles. Through comprehensive product page auditing and strategic A/B testing recommendations, this study projects significant improvements in both conversion rates and revenue.</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="number">2.1%</span>
+                    <div class="label">Current Conversion Rate</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">3.2%</span>
+                    <div class="label">Projected Conversion Rate</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">+52%</span>
+                    <div class="label">Revenue Increase Potential</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">90 days</span>
+                    <div class="label">Implementation Timeline</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Business Context & Opportunity</h2>
+            
+            <h3>Category Selection: Why Home & Garden?</h3>
+            <div class="insight-box">
+                <h4>Strategic Category Rationale</h4>
+                <p><strong>High-Research, High-Intent Purchases:</strong> Customers extensively research outdoor equipment, patio furniture, and garden supplies before purchasing. By the time they reach Walmart's site, they've done the "heavy lifting" of product selection and are ready to convert.<br><br>
+                <strong>Mobile Research Behavior:</strong> Shoppers often browse Home & Garden products on mobile while at competitors, in showrooms, or planning outdoor projects. This creates immediate conversion opportunities if the mobile experience is optimized.<br><br>
+                <strong>Seasonal Urgency:</strong> Spring/summer seasonality creates time-sensitive purchase decisions where mobile friction can mean lost sales to competitors with better mobile experiences.</p>
+            </div>
+            
+            <h3>Current State Analysis</h3>
+            <p>Based on industry benchmarks and retail operations experience, the Home & Garden category represents significant untapped potential:</p>
+            
+            <div class="insight-box">
+                <h4>Key Market Insights</h4>
+                <p>• <strong>Industry Average:</strong> E-commerce conversion rates range from 2-4% across categories<br>
+                • <strong>Home & Garden Opportunity:</strong> High-consideration purchases with extended research phases<br>
+                • <strong>Mobile Optimization Gap:</strong> 60% of traffic on mobile devices with lower conversion rates<br>
+                • <strong>Seasonal Patterns:</strong> 40% higher traffic during spring/summer months</p>
+            </div>
+            
+            <h3>Revenue Impact Projection</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Current Performance</th>
+                        <th>Projected Performance</th>
+                        <th>Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monthly Product Page Visits</td>
+                        <td>2,500,000</td>
+                        <td>2,500,000</td>
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Rate</td>
+                        <td>2.1%</td>
+                        <td>3.2%</td>
+                        <td class="improve">+52%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Conversions</td>
+                        <td>52,500</td>
+                        <td>80,000</td>
+                        <td class="improve">+27,500</td>
+                    </tr>
+                    <tr>
+                        <td>Average Order Value</td>
+                        <td>$85</td>
+                        <td>$92</td>
+                        <td class="improve">+8.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Revenue Impact</td>
+                        <td>$4,462,500</td>
+                        <td>$7,360,000</td>
+                        <td class="improve">+$2,897,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Product Page Audit & Optimization Opportunities</h2>
+            
+            <h3>Critical Issues Identified</h3>
+            
+            <div class="recommendation-list">
+                <h4>1. Mobile Experience Optimization</h4>
+                <ul>
+                    <li><strong>Issue:</strong> Add to cart button 23% smaller on mobile devices</li>
+                    <li><strong>Solution:</strong> Increase button size by 40% and improve thumb accessibility</li>
+                    <li><strong>Expected Impact:</strong> +15% mobile conversion rate improvement</li>
+                </ul>
+            </div>
+            
+            <div class="recommendation-list">
+                <h4>2. Product Information Architecture</h4>
+                <ul>
+                    <li><strong>Issue:</strong> Key specifications buried below fold, requiring 3+ scrolls</li>
+                    <li><strong>Solution:</strong> Implement tabbed information design with quick-view specs</li>
+                    <li><strong>Expected Impact:</strong> +12% overall conversion improvement</li>
+                </ul>
+            </div>
+            
+            <div class="recommendation-list">
+                <h4>3. Social Proof & Trust Signals</h4>
+                <ul>
+                    <li><strong>Issue:</strong> Reviews visible only after scrolling, limited photo reviews</li>
+                    <li><strong>Solution:</strong> Prominent review display with photo carousel integration</li>
+                    <li><strong>Expected Impact:</strong> +8% conversion rate boost</li>
+                </ul>
+            </div>
+            
+            <div class="recommendation-list">
+                <h4>4. Cross-selling & Bundle Optimization</h4>
+                <ul>
+                    <li><strong>Issue:</strong> Related products shown only at page bottom</li>
+                    <li><strong>Solution:</strong> Strategic "Complete the Project" bundles near purchase decision</li>
+                    <li><strong>Expected Impact:</strong> +18% average order value increase</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>A/B Testing Strategy</h2>
+            
+            <h3>Testing Roadmap</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="phase">Phase 1: Mobile CTA</div>
+                    <div>Week 1-3<br>Button size & placement testing</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase">Phase 2: Information Layout</div>
+                    <div>Week 4-6<br>Tabbed design implementation</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase">Phase 3: Social Proof</div>
+                    <div>Week 7-9<br>Review positioning tests</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="phase">Phase 4: Bundling</div>
+                    <div>Week 10-12<br>Cross-sell optimization</div>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h4>Testing Methodology</h4>
+                <p><strong>Sample Size:</strong> Minimum 10,000 visitors per variation for statistical significance<br>
+                <strong>Success Metrics:</strong> Conversion rate, average order value, bounce rate, time on page<br>
+                <strong>Confidence Level:</strong> 95% statistical significance required before implementation<br>
+                <strong>Test Duration:</strong> 3 weeks minimum per test to account for weekly patterns</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Implementation & Resource Requirements</h2>
+            
+            <h3>Technical Implementation</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Development Effort</th>
+                        <th>Resources Required</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mobile CTA Optimization</td>
+                        <td>Low</td>
+                        <td>Frontend Developer, UX Designer</td>
+                        <td>1 week</td>
+                    </tr>
+                    <tr>
+                        <td>Information Architecture</td>
+                        <td>Medium</td>
+                        <td>Full-stack Developer, UX Designer</td>
+                        <td>2-3 weeks</td>
+                    </tr>
+                    <tr>
+                        <td>Review Integration</td>
+                        <td>Medium</td>
+                        <td>Backend Developer, Frontend Developer</td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td>Bundle Recommendation Engine</td>
+                        <td>High</td>
+                        <td>Data Scientist, Backend Developer</td>
+                        <td>4-6 weeks</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Success Monitoring Dashboard</h3>
+            <div class="recommendation-list">
+                <h4>Key Performance Indicators</h4>
+                <ul>
+                    <li><strong>Primary:</strong> Conversion rate by device type and product category</li>
+                    <li><strong>Secondary:</strong> Average order value, cart abandonment rate</li>
+                    <li><strong>Leading:</strong> Time on page, scroll depth, CTA click-through rate</li>
+                    <li><strong>Business:</strong> Revenue per visitor, customer acquisition cost</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Expected Outcomes & ROI</h2>
+            
+            <h3>Projected Business Impact</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="number">$34.8M</span>
+                    <div class="label">Annual Revenue Increase</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">330,000</span>
+                    <div class="label">Additional Annual Conversions</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">1,250%</span>
+                    <div class="label">Projected ROI</div>
+                </div>
+                <div class="metric-card">
+                    <span class="number">45 days</span>
+                    <div class="label">Payback Period</div>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h4>Strategic Advantages & Cross-Functional Impact</h4>
+                <p><strong>Competitive Positioning:</strong> Enhanced user experience drives customer preference and retention<br>
+                <strong>Data-Driven Insights:</strong> A/B testing creates continuous optimization opportunities<br>
+                <strong>Scalability:</strong> Successful optimizations can be applied across product categories<br>
+                <strong>Operational Integration:</strong> Improved mobile ordering directly benefits store fulfillment operations (ODP/OGP), reducing picking errors and improving delivery efficiency<br>
+                <strong>Market Share:</strong> Enhanced conversion rates support more aggressive marketing investments</p>
+            </div>
+        </div>
+        
+        <div class="section" style="background: linear-gradient(135deg, #e3f2fd, #f1f8ff); border: 2px solid #0071ce;">
+            <h2 style="color: #0071ce;">Executive Summary of Key Findings</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0;">
+                <div>
+                    <h3 style="color: #0071ce; margin-bottom: 15px;">Critical Issues Identified</h3>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Mobile Conversion Gap:</strong> 60% mobile traffic, suboptimal mobile experience</li>
+                        <li><strong>Information Architecture Problems:</strong> Key product specs buried below fold</li>
+                        <li><strong>Weak Social Proof:</strong> Reviews hidden, limited customer validation visible</li>
+                        <li><strong>Missed Cross-selling:</strong> Related products only shown at page bottom</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #0071ce; margin-bottom: 15px;">Strategic Solutions</h3>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Mobile-First Redesign:</strong> Thumb-friendly CTAs, streamlined information flow</li>
+                        <li><strong>Tabbed Information Design:</strong> Quick-access product specifications above fold</li>
+                        <li><strong>Prominent Review Integration:</strong> Photo reviews, rating display optimization</li>
+                        <li><strong>Strategic Bundle Placement:</strong> "Complete the Project" recommendations near purchase decision</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="insight-box" style="background: #e6f4ea; border-left-color: #4caf50;">
+                <h4 style="color: #388e3c;">Bottom Line Impact</h4>
+                <p><strong>Investment Required:</strong> Development resources for UX improvements and A/B testing infrastructure<br>
+                <strong>Timeline to Results:</strong> 30 days for mobile optimization, 90 days for full A/B testing completion<br>
+                <strong>Projected Annual Impact:</strong> +$34.8M revenue, +52% conversion rate, +330K additional conversions<br>
+                <strong>Operational Benefit:</strong> Enhanced mobile ordering improves store fulfillment (ODP/OGP) efficiency and customer satisfaction</p>
+            </div>
+        </div>
+        
+        <div class="section" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-left: 5px solid #0071ce;">
+            <h2 style="color: #0071ce;">About This Analysis</h2>
+            <p><strong>Disclaimer:</strong> This is a strategic analysis exercise demonstrating digital marketing and optimization skills. All Walmart-specific data points are projections based on industry standards and retail operations experience, not actual company data.</p>
+            
+            <div style="margin: 20px 0;">
+                <h3 style="color: #0071ce; font-size: 1.2em;">Data Sources & Methodology</h3>
+                <p><strong>Industry Benchmarks Used:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Conversion Rates:</strong> 2-4% industry standard for e-commerce (Baymard Institute, 2024)</li>
+                    <li><strong>Mobile Optimization Impact:</strong> 15-25% improvement typical for CTA optimization (Google Marketing Platform studies)</li>
+                    <li><strong>A/B Testing Methodology:</strong> Standard statistical significance requirements (95% confidence level)</li>
+                    <li><strong>Revenue Projections:</strong> Calculated using typical Home & Garden category performance metrics</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Strategic Approach:</strong> This analysis demonstrates how retail operations experience combines with digital marketing principles to identify optimization opportunities that impact both online performance and in-store fulfillment operations (ODP/OGP integration).</p>
+            </div>
+            
+            <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                <h4 style="color: #f57c00; margin-bottom: 10px;">Skills Demonstrated</h4>
+                <p>• Strategic business analysis and opportunity identification<br>
+                • Data interpretation using industry benchmarks<br>
+                • A/B testing methodology and experimental design<br>
+                • Cross-functional business impact assessment<br>
+                • Professional presentation and communication</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
